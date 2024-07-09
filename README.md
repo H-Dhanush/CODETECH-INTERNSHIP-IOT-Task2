@@ -68,7 +68,7 @@ The objective of this project is to create a WiFi-based control system for a lig
 
 ### Steps to do this project:
 
-1. **Ensure Latest Arduino IDE:** <br>
+1. **Ensure Latest Arduino IDE:**
 
         ● Before starting, make sure you have the latest version of the Arduino IDE installed. If not, uninstall the current version and install the latest one to ensure compatibility.
 
