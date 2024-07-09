@@ -95,27 +95,32 @@ The objective of this project is to create a WiFi-based control system for a lig
 5. **Set Up WiFi Connection:** <br>
 
        ● Define the WiFi settings in your code:
+   
          #define REMOTEXY_MODE__WIFI_POINT 
          #define REMOTEXY_WIFI_SSID "RemoteXY" 
          #define REMOTEXY_WIFI_PASSWORD "12345678" 
          #define REMOTEXY_SERVER_PORT 6377
+   
        ● Include the necessary libraries:
+   
          #include <WiFi.h> <br>
          #include <RemoteXY.h> <br>
          
 
-6. **Configure RemoteXY Interface:** <br>
+7. **Configure RemoteXY Interface:** <br>
 
-       ● Define the GUI configuration: 
+       ● Define the GUI configuration:
+   
          uint8_t RemoteXY_CONF[] = { 255,1,0,0,0,29,0,17,0,0,0,164,1,106,200,1,1,1,0,2,31,80,44,22,1,36,26,31,31,79,70,70,0,79,78,0 };
          
        ● Define the RemoteXY structure:
+   
          struct {
            uint8_t Light_Bulb; // =1 if switch ON and =0 if OFF
            uint8_t connect_flag;  // =1 if wire connected, else =0
          } RemoteXY;
 
-7. **Initialize RemoteXY and Set Up GPIO:** 
+9. **Initialize RemoteXY and Set Up GPIO:** 
 
        ● In the **setup()** function, initialize RemoteXY and set the pin mode: 
          
@@ -125,7 +130,7 @@ The objective of this project is to create a WiFi-based control system for a lig
            Serial.begin(115200); 
          }
          
-9. **Control Light Bulb:** <br>
+10. **Control Light Bulb:** <br>
 
        ● In the **loop()** function, handle RemoteXY events and control the light bulb: 
          void loop() {  
@@ -133,7 +138,7 @@ The objective of this project is to create a WiFi-based control system for a lig
            digitalWrite(PIN_LIGHT_BULB, (RemoteXY.Light_Bulb == 0) ? LOW : HIGH);  
          } 
 
-10. **Monitor State Changes:** <br>
+11. **Monitor State Changes:** <br>
 
        ● Add logic to monitor and print state changes to the Serial monitor: 
          bool lastState = LOW; 
@@ -151,17 +156,17 @@ The objective of this project is to create a WiFi-based control system for a lig
            } 
          } 
 
-11. **Final Touches:** <br>
+12. **Final Touches:** <br>
 
-       ● Avoid using **delay()** in the loop; use **RemoteXY_delay()** if needed. 
+       ● Avoid using **delay()** in the loop; use **RemoteXY_delay()** if needed. <br>
        ● Ensure the setup and loop functions are correctly defined and free of blocking code. 
 
-12. **Upload and Test:** <br>
+13. **Upload and Test:** <br>
 
-       ● Connect your ESP32 board to the computer. 
-       ● Select the correct board and port from the **Tools > Board** and **Tools > Port** menus. 
-       ● Upload the code to your ESP32. 
-       ● Connect to the "RemoteXY" WiFi network using the password "12345678". 
+       ● Connect your ESP32 board to the computer. <br>
+       ● Select the correct board and port from the **Tools > Board** and **Tools > Port** menus. <br>
+       ● Upload the code to your ESP32. <br>
+       ● Connect to the "RemoteXY" WiFi network using the password "12345678". <br>
        ● Open the RemoteXY app on your device, connect to the ESP32, and control the light bulb.
   
 ### Circuit Diagram
